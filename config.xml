@@ -147,5 +147,5 @@
     <plugin name="cordova-plugin-vibration" source="npm" spec="~2.1.0" />
     <plugin name="cordova-plugin-whitelist" source="npm" spec="~1.2.1" />-->
 	<!--<plugin name="phonegap-plugin-barcodescanner" source="npm" spec="~7.1.1" />-->	
-	<plugin name="phonegap-plugin-barcodescanner" />
+	<!--<plugin name="phonegap-plugin-barcodescanner" />-->
 </widget>
