@@ -1,0 +1,577 @@
+﻿@charset "utf-8";
+/* Medios fluidos sencillos
+   Nota: Los medios fluidos exigen la eliminación de los atributos de altura y anchura de los medios del código HTML
+   http://www.alistapart.com/articles/fluid-images/ 
+*/
+img, object, embed, video {
+	max-width: 100%;
+}
+/* IE 6 no admite max-width (anchura máxima), por lo que usa de manera predeterminada una anchura del 100% */
+.ie6 img {
+	width:100%;
+}
+
+/*
+	Propiedades de cuadrícula fluida de Dreamweaver
+	----------------------------------
+	dw-num-cols-mobile:		4;
+	dw-num-cols-tablet:		6;
+	dw-num-cols-desktop:	12;
+	dw-gutter-percentage:	25;
+	
+	Inspiración obtenida de "Responsive Web Design" de Ethan Marcotte 
+	http://www.alistapart.com/articles/responsive-web-design
+	
+	y Golden Grid System de Joni Korpi
+	http://goldengridsystem.com/
+*/
+
+/* Diseño móvil: 480 px e inferior. */
+
+
+@font-face {
+
+font-family: Raleway;
+
+src: url(fonts/Raleway-Regular.ttf) format(‘truetype’);
+
+}
+
+h5 {
+	font-size: 13px !important;
+	color:#FFF !important;
+	line-height: 18px !important;
+}
+
+.gridContainer {
+	margin-left: auto;
+	margin-right: auto;
+	width: 100%;
+	/*padding-left: 2.25%;
+	padding-right: 2.25%;*/
+}
+a:focus {
+    outline: none !important;
+    outline-offset: 0px !important;
+}
+#LayoutDiv0 {
+	clear: both;
+	float: left;
+	display: block;
+	text-align: center;	
+	position: absolute;
+	top:35%;
+	left:0;
+	right:0;
+	bottom:0;
+	margin: auto;
+}
+#LayoutDiv1 {
+	clear: both;
+	float: left;
+	display: block;
+	text-align: center;	
+	position: absolute;
+	top:35%;
+	left:0;
+	right:0;
+	bottom:0;
+	margin: auto;
+}
+#LayoutDiv2 {
+	clear: both;
+	float: left;
+	display: block;
+	text-align: center;	
+	position: absolute;
+	top:55%;
+	left:0;
+	right:0;
+	bottom:0;
+	margin: auto;
+}
+#LayoutDiv6 {
+	clear: both;
+	float: left;
+	display: block;
+	text-align: center;	
+	position: absolute;
+	top:12%;
+	left:0;
+	right:0;
+	bottom:0;
+	margin: auto;
+	overflow: auto;
+	padding-top: 50px;
+}
+#LayoutDiv7 {
+	clear: both;
+	float: left;
+	display: block;
+	text-align: center;	
+	position: absolute;
+	top:22.8%;
+	left:0;
+	right:0;
+	bottom:0;
+	margin: auto;
+}
+.botones-servicios-ike{
+	list-style:none;
+	padding-bottom: 10px !important;
+}
+#LayoutDiv2 li {
+	list-style:none;
+	padding-bottom: 40px;
+}
+#LayoutDiv2 a:hover {
+	color: #fff;
+    text-decoration: none;
+}
+#LayoutDiv3 {
+	clear: both;
+	float: left;
+	display: block;
+	text-align: center;	
+	left:0;
+	right:0;
+	bottom:0;
+	margin: auto;
+	width: 100%;
+    background-color: #fff;
+    height: 90px;
+    position: relative;
+    top: 0px;
+	border-bottom: solid 3px #ee8e28;
+}
+#LayoutDiv4 {
+	clear: both;
+	float: left;
+	display: block;
+	text-align: center;	
+	left:0;
+	right:0;
+	bottom:0;
+	margin: auto;
+	width: 100%;
+    background-color: #000;
+    height: 40px;
+    position: relative;
+    top: 0px;
+    z-index: 10;
+}
+#LayoutDiv5 {
+	clear: both;
+	float: left;
+	display: block;
+	text-align: center;	
+	left:0;
+	right:0;
+	bottom:0;
+	margin: auto;
+	width: 100%;
+    background-color:#eee;
+    height: 48px;
+    position: relative;
+    top: 0px;
+	padding-top: 7px;
+}
+.campo-buscar {
+	width:80%;
+	border-radius: 25px 25px;
+    border: 1px solid #d5d5d5;
+    height: 30px;
+}
+.boton-buscar {
+	background-image:url(img/icon-search.png);
+	background-repeat:no-repeat;
+	background-position:center;
+	width: 30px;
+    height: 22px;
+    position: relative;
+    top: 5px;
+    border: none;
+    background-color: #eee;
+}
+.icon-back {
+	margin-top:4px
+}
+.loading-bg {
+	background-image:url(img/bg.jpg);
+	background-repeat:repeat;
+	background-size:cover;
+}
+.home-bg {
+	background-image:url(img/bg-home.jpg);
+	background-repeat:repeat;
+	background-size:cover;
+	background-position: 0 -15%;
+}
+.servicios-ike-bg {
+	background-image:url(img/bg-home-ike.jpg);
+	background-repeat:repeat;
+	background-size:cover;
+	background-position: 0 -15%;
+}
+.servicios-ike-bg-child {
+	background-color:#FFF;
+}
+.menu-inferior  {
+	position: absolute;
+	bottom: 0px;
+	width: 100%;
+	text-align: left;
+}
+.menu-inferior-btn  {
+	position: absolute;
+	bottom: 0px;
+	width: 100%;
+	text-align: center;
+	background-color:#FFF;
+	border-top: 3px solid #ee8e28;
+	padding: 5px;
+}
+.menu-central {
+    font-size: 17px;
+    font-weight: 300;
+    background-color: #ee8e28;
+	padding-bottom: 16px;
+	padding-top: 15px;
+    border-radius: 25px 25px;
+	/*width: 220px;*/
+    margin: auto;
+	margin-bottom: 7px;
+}
+.menu-central:hover {
+    font-size: 17px;
+    font-weight: 300;
+    background-color: #b77530;
+	padding-bottom: 16px;
+	padding-top: 15px;
+    border-radius: 25px 25px;
+	/*width: 220px;*/
+    margin: auto;
+	margin-bottom: 7px;
+}
+.menu-central:focus {
+    font-size: 17px;
+    font-weight: 300;
+    background-color: #b77530;
+	padding-bottom: 16px;
+	padding-top: 15px;
+    border-radius: 25px 25px;
+	/*width: 220px;*/
+    margin: auto;
+	margin-bottom: 7px;
+}
+.menu-central:visited {
+    font-size: 17px;
+    font-weight: 300;
+    background-color: #ee8e28;
+	padding-bottom: 16px;
+	padding-top: 15px;
+    border-radius: 25px 25px;
+	/*width: 220px;*/
+    margin: auto;
+	margin-bottom: 7px;
+}
+.boton {
+	color:#FFF;
+	text-decoration:none;
+}
+.boton:focus {
+	color:#FFF;
+	text-decoration:none;
+}
+.ike {
+	background-image:url(img/bg-boton-ike.png);
+	background-repeat: no-repeat;
+    background-position: 111px -56px;
+    background-size: 70%;
+	padding-left: 36px;
+    padding-right: 36px;
+}
+.vw {
+	background-image:url(img/bg-boton-vw.png);
+	background-repeat: no-repeat;
+    background-position: 141px -23px;
+    background-size: 40%;
+	padding-left: 32px;
+    padding-right: 32px;
+}
+.ike-cancelar {
+    background-size: 50%;
+	padding-left: 10px;
+    padding-right: 31px;
+	background-color: #989898 !important;
+}
+.ike-llamada {
+    background-size: 50%;
+	padding-left: 15px;
+    padding-right: 43px;
+}
+.ike-cupon {
+    background-size: 50%;
+    padding-left: 25px;
+    padding-right: 23px;
+}
+.ike-chat {
+    background-size: 50%;
+	padding-left: 30px;
+    padding-right: 63px;
+}
+.ike-autos {
+	background-image:url(img/bg-boton-autos.png);
+	background-repeat: no-repeat;
+    background-position: 142px -33px;
+    background-size: 50%;
+	padding-left: 76px;
+    padding-right: 76px;
+}
+.ike-hogar {
+	background-image:url(img/bg-boton-hogar.png);
+	background-repeat: no-repeat;
+    background-position: 141px -24px;
+    background-size: 40%;
+	padding-left: 76px;
+    padding-right: 76px;
+}
+.display-none {
+	display: none;
+}
+.ike-ok {
+    background-size: 50%;
+    padding-left: 16px;
+    padding-right: 47px;
+}
+.menu-inferior img {
+	width:60px;
+	height:60px;
+}
+.empty50 {
+	padding: 50px;
+}
+.empty45 {
+	padding: 45px;
+}
+
+
+/*  MODAL SERVICIO IKE */
+.modal-autos {
+	top: 10% !important;
+    margin-top: 10% !important;
+}
+.modal-hogar {
+	top: 10% !important;
+    margin-top: 30% !important;
+}
+
+
+/* MODAL LOADING */
+
+.modal-loading {
+	padding-right:0px
+}
+.validacion {
+	font-size:14px;
+}
+.txt-login {
+    font-size: 14px;
+    padding-bottom: 4px;
+    padding-top: 10px;
+    font-weight: 600;
+}
+.boton-login {
+	height: 30px;
+    position: relative;
+	border-radius: 25px 25px;
+    border: none;
+    background-color: #FF9800;
+    width: 85%;
+	color: #fff;
+	margin-bottom: 10px;
+}
+.campo-login {
+    width: 80%;
+    border-radius: 25px 25px;
+    border: 1px solid #d5d5d5;
+    height: 30px;
+    padding: 11px;
+    margin-bottom: 10px;
+	margin-right: 5px;
+    margin-left: 5px;
+	position: relative;
+}
+:focus {
+    outline: none !important;
+}
+
+
+/* MODAL HOME */
+
+.iconos-modal {
+    margin-left: 0px;
+    margin-right: 0px;
+    font-size: 11px;
+    text-align: center;
+    padding-right: 6px !important;
+    padding-left: 6px !important;
+}
+.indicador-modal {
+	z-index:2000;
+	position: absolute;
+    bottom: -59px;
+    left: 41%;
+}
+.link-modal {
+	text-decoration:none;
+	color:#000;
+}
+.link-modal:hover {
+	text-decoration:none;
+	color:#000;
+}
+.link-modal:focus {
+	text-decoration:none;
+	color:#000;
+}
+.link-modal:visited {
+	text-decoration:none;
+	color:#000;
+}
+.notificacion-mis-avisos{
+	position: absolute;
+    top: 7px;
+    right: 34px;
+    width: 20px;
+    height: 20px;
+}
+.notificacion-serv-vw{
+	position: absolute;
+    top: -18px;
+    width: 20px;
+    height: 20px;
+}
+.legal {
+	font-size: 10px;
+    line-height: 12px;
+    text-align: left;
+    font-weight: 600;
+}
+.modal-body-legal {
+    position: relative;
+    padding: 20px 0px 20px 0px;
+}
+.modal-footer {
+    padding: 15px;
+    text-align: center !important;
+    border-top: 1px solid #e5e5e5;
+}
+
+/* MIS AVISOS ADJUDICACIONES */ 
+
+.novedad{
+    font-size: 25px;
+    font-weight: 300;
+    color: #ee8e28;
+}
+
+/* ADJUDICACION */
+
+.tabla-adj {
+	width: 100%;
+    text-align: center;
+    line-height: 23px;
+    border: 1px solid #cbcbcb;
+}
+.tabla-adj tr td{
+    border: 1px solid #cbcbcb;
+}
+.titulo-tabla {
+	background-color:#c1c1c1;
+}
+
+/* FOR DD IMPUESTO */
+
+.col-xs-6 {
+	padding-left:0px !important;
+	padding-right:0px !important;
+}
+.col-xs-6 img{
+	max-height:60px;
+}
+.rhead{
+	text-align:right;
+}
+.lhead{
+	text-align:left;
+}
+
+.head{
+    top: 13px;
+    position: relative;
+}
+
+/* Diseño móvil: hasta 320 px. */
+
+@media only screen and (max-width: 320px) {
+.notificacion-mis-avisos {
+    position: absolute;
+    top: 10px;
+    right: 28px;
+    width: 20px;
+    height: 20px;
+}
+}
+
+/* Diseño tableta: de 481 px a 768 px. Hereda estilos de: Diseño móvil. */
+
+@media only screen and (min-width: 481px) {
+.gridContainer {
+	width: 100%;
+	/*padding-left: 1.5%;
+	padding-right: 1.5%;*/
+}
+#LayoutDiv1 {
+	clear: both;
+	float: left;
+	margin-left: 0;
+	width: 100%;
+	display: block;
+}
+}
+
+/* Diseño escritorio: de 769 px hasta un máximo de 1232 px.  Hereda estilos de: Diseño móvil y Diseño tableta. */
+
+@media only screen and (min-width: 769px) {
+.gridContainer {
+	width: 100%;
+	max-width: 1232px;
+	/*padding-left: 0.75%;
+	padding-right: 0.75%;*/
+	margin: auto;
+}
+#LayoutDiv1 {
+	clear: both;
+	float: left;
+	margin-left: 0;
+	width: 100%;
+	display: block;
+}
+}
+
+.dialogo-loading {
+	position: absolute !important;
+	top: 25% !important;
+}
+
+.dialogo-autoahorro {
+	top: 10% !important;
+	margin-top: 35% !important;
+}
+
+.titulo-pagina {
+	width: 80% !important;
+	padding-left: 20px !important;
+	text-align: left !important;
+}

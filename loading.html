@@ -1,0 +1,88 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Loading...</title>
+	<link href="boilerplate.css" rel="stylesheet" type="text/css">
+	<link href="estilos.css" rel="stylesheet" type="text/css">
+	<meta name="description" content="Aplicación para Volkwagen - IKÉ">
+	<meta name="author" content="Latika IT SRL">
+	<script src="respond.min.js"></script>
+    
+ 	<!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <script src="http://code.jquery.com/jquery-1.12.0.min.js"></script>
+   	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/funciones.js"></script>
+    <script type="text/javascript" src="cordova.js"></script>
+     
+</head>
+<body class="loading-bg">
+	<div class="gridContainer clearfix">
+    
+	<!-- // Modal VALIDACIÓN \\ -->
+		<div id="ValidacionModal" class="modal fade modal-loading" role="dialog" data-backdrop="static">
+  			<div class="modal-dialog dialogo-loading">
+    			<!-- // Modal content \\ -->
+    			<div class="modal-content">
+      				<div class="modal-body">
+        				<div class="container">
+            				<div class="col-xs-12 iconos-modal"> 
+                            	<p class="txt-login"> Completar los siguientes datos </p>
+            					<a href="#" class="link-modal validacion">
+                					<form action="" method="get">
+										<input name="DNI" type="number" placeholder="DNI: 11222333" class="campo-login">  
+                                    	<input name="Legajo" type="number" placeholder="Legajo: 12345" class="campo-login">                                                                              
+                                        <input name="INGRESAR" id="botonIngresar" type="button" class="boton-login" value="INGRESAR">
+                                    </form>
+                				</a>
+            				</div>
+        				</div>
+      				</div>
+    			</div>
+    			<!-- \\ Modal content // -->
+  			</div>
+		</div>
+	<!-- \\ Modal VALIDACIÓN // -->
+    
+	<!-- // Logo Volkswagen \\ -->   
+    	<a href="#" class="link-modal"></a> 
+		<div id="LayoutDiv0">
+			<!--<img src="img/Logo-VW.png" alt="Volkswagen" >-->
+		</div>
+ 	<!-- \\ Logo Volkswagen // -->
+    
+	</div>
+
+	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+
+    <script type="text/javascript">
+        $("#botonIngresar").on("click", function(event) {
+            mostrarCargando();
+            setConfigValue("legajo", $("[name='Legajo']").val());          
+            setConfigValue("dni", $("[name='DNI']").val());
+
+            var mensajeError = login();
+
+            if (getConfigValue("usuarioLogueado") == "S") {
+                window.location = "home.html";
+            } else {
+                mostrarDialogoError(mensajeError);
+                ocultarCargando();
+            }
+        });
+
+        if (navigator.userAgent.match(/(iPhone|iPod|iPad|Android)/)) {
+            document.addEventListener("deviceready", inicializarLoading, false);
+            document.addEventListener("backbutton", salir, false);
+        } else {
+            inicializarLoading();
+        }
+    </script>
+
+</body>
+</html>

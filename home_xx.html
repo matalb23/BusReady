@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+     KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+-->
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <meta name="format-detection" content="telephone=no" />
+        <!--<meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />-->
+		<meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1" />
+        <link rel="stylesheet" type="text/css" href="css/index.css" />
+        <title>Barcode Scanner Demo</title>
+		
+		<link href="boilerplate.css" rel="stylesheet" type="text/css">
+		<link href="estilos.css" rel="stylesheet" type="text/css">
+		<meta name="description" content="Aplicación para Volkwagen - IKÉ">
+		<meta name="author" content="Latika IT SRL">
+		<script src="respond.min.js"></script>
+		<script type="text/javascript" src="js/funciones.js"></script>
+		<script type="text/javascript" src="cordova.js"></script>
+		<!--0<script type="text/javascript" src="cordova.js"></script>-->
+
+    </head>
+    <body>
+	
+<!-- // HEAD \\ -->
+ <!--
+<div id="LayoutDiv3">
+	<div class="container">
+	<div class="col-xs-6 lhead"> 
+    	<img src="img/Logo-AutoAhorro.png" alt="Auto Ahorro" class="head">
+    </div>
+	<div class="col-xs-6 rhead"> 
+    	<img src="img/Logo-IKE.png" alt="IKÉ Asistencia" class="head">
+    </div>    
+    </div>
+</div>-->
+<!-- \\ HEAD // -->
+
+<!-- // TITULO \\ -->
+ <!--
+<div id="LayoutDiv4">
+	<div class="container">
+	<div class="col-xs-2 icon-back"> 
+    	<a href="#" onclick="goBack()"><img src="img/icon-back.png" alt="Volver" width="31" height="31"></a>
+    </div>
+	<div class="col-xs-9" style="padding:0px"> 
+    	<h5> INSPECIONES </h5>
+    </div>    
+    </div>
+</div>
+-->
+<!-- \\ TITULO // -->
+
+        <div class="app">
+            <!--
+            <div id="deviceready" class="blink">
+                <p class="event listening">Connecting to Device</p>
+                <p class="event received">Device is Ready</p>
+            </div>
+			<p><a href="#" class="topcoat-button" id="scan">SCAN</a></p>
+			-->
+			 <div id="deviceready" class="blink">
+                <p class="event listening">Connecting to Device</p>
+                <p class="event received">Device is Ready</p>
+            </div>
+            <p><a href="#" class="topcoat-button" id="scan">SCAN</a></p>
+            <p><a href="#" class="topcoat-button" id="encode">ENCODE</a></p>
+			
+            <p><a href="#"  id="scana">Firmar</a> <a href="#"  id="Observaciones">Observar</a></p>
+			<br>
+            <!--<p><a href="#" class="topcoat-button" id="encode">ENCODE</a></p>
+            <p id="info"></p>-->
+            
+        </div>
+		<div id="LayoutDiv6">
+			
+			<table class="tabla-adj">
+				<tbody>
+					<tr class="titulo-tabla">
+						<td>
+							Interno
+						</td>
+						<td>
+							Hora
+						</td>
+						
+					</tr>
+				</tbody>
+			</table>
+			</div>
+		</div>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+		<script src="js/bootstrap.min.js"></script>               
+		
+        <script type="text/javascript" src="barcodescanner.js"></script>
+        <script type="text/javascript" src="js/index.js"></script>
+		<script type="text/javascript">
+		app.initialize();
+      /*  if (navigator.userAgent.match(/(iPhone|iPod|iPad|Android)/)) {
+            document.addEventListener("deviceready", inicializarAdjudicaciones, false);
+            document.addEventListener("backbutton", goBack, false);
+        } else {
+            inicializarAdjudicaciones();
+        }*/
+    </script>
+    </body>
+</html>
