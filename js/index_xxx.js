@@ -45,49 +45,31 @@ var app = {
         
         var scanner = cordova.plugins.barcodeScanner;
 
-        scanner.scan(
-		/*
-		function (result) { 
-
+        scanner.scan( function (result) { 
+/*
+            alert("We got a barcode\n" + 
+            "Result: " + result.text + "\n" + 
+            "Format: " + result.format + "\n" + 
+            "Cancelled: " + result.cancelled);  
+*/
            console.log("Scanner result: \n" +
                 "text: " + result.text + "\n" +
                 "format: " + result.format + "\n" +
                 "cancelled: " + result.cancelled + "\n");
+            //document.getElementById("info").innerHTML = result.text;
             console.log(result);
 			Firmar(result.text);
-			
+			//inicializarInspecciones();
 			 window.location = "home.html";
-
+            /*
+            if (args.format == "QR_CODE") {
+                window.plugins.childBrowser.showWebPage(args.text, { showLocationBar: false });
+            }
+            */
 
         }, function (error) { 
             console.log("Scanning failed: ", error); 
-        }*/
-		function (result) {
-          /*alert("We got a barcode\n" +
-                "Result: " + result.text + "\n" +
-                "Format: " + result.format + "\n" +
-                "Cancelled: " + result.cancelled);*/
-			Firmar(result.text);			
-			 window.location = "home.html";
-      },
-      function (error) {
-          alert("No se leyo el interno: " + error);
-      },
-      {
-          preferFrontCamera : false, // iOS and Android
-          showFlipCameraButton : false, // iOS and Android
-          showTorchButton : true, // iOS and Android
-          torchOn: true, // Android, launch with the torch switched on (if available)
-          saveHistory: false, // Android, save scan history (default false)
-          prompt : "Firme el Interno", // Android
-          resultDisplayDuration: 500, // Android, display scanned text for X ms. 0 suppresses it entirely, default 1500
-          formats : "QR_CODE", // default: all but PDF_417 and RSS_EXPANDED
-          orientation : "landscape", // Android only (portrait|landscape), default unset so it rotates with the device
-          disableAnimations : true, // iOS
-          disableSuccessBeep: false // iOS and Android
-      }
-
-		);
+        } );
     },
 
     encode: function() {
