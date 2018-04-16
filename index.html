@@ -20,7 +20,7 @@
         function inicializarIndex() {
 		setConfigValue("usuarioLogueado", "N");
             if (getConfigValue("dni") && getConfigValue("legajo")) {
-				alert("Login");
+				//alert("Login");
                 var mensajeError = login();
 			
             } else {
@@ -28,10 +28,10 @@
             }
 
     	    if (getConfigValue("usuarioLogueado") == "S") {
-				alert("Home");
+				//alert("Home");
     	        window.location = "home.html";
     	    } else {
-				alert("Loading");
+				//alert("Loading");
                 if (mensajeError) {
                     mostrarDialogoError(mensajeError);
                 }

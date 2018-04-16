@@ -186,18 +186,18 @@ function login() {
         setConfigValue("token", response.access_token);
         setConfigValue("usuarioLogueado", "S");
         //log("200", "loading", "Llamado exitoso al servicio " + url);
-		mostrarDialogoError("usuarioLogueado");
+		//mostrarDialogoError("usuarioLogueado");
     } else if (response.error_description) {
         borrarCache();
         setConfigValue("usuarioLogueado", "N");
         //log("401", "loading", "Error al llamar al servicio " + url + " - " + response.error_description);
-		mostrarDialogoError("Usuario no válido. Verifique los datos ingresados. Grupo debe tener 5 digitos incluyendo 0 a izquierda. Orden debe tener 3 digitos incluyendo 0 a izquierda. Documento no debe tener puntos ni espacios.");
+		//mostrarDialogoError("Usuario no válido. Verifique los datos ingresados. Grupo debe tener 5 digitos incluyendo 0 a izquierda. Orden debe tener 3 digitos incluyendo 0 a izquierda. Documento no debe tener puntos ni espacios.");
         return "Usuario no válido. Verifique los datos ingresados. Grupo debe tener 5 digitos incluyendo 0 a izquierda. Orden debe tener 3 digitos incluyendo 0 a izquierda. Documento no debe tener puntos ni espacios.";
     } else {
         borrarCache();
         setConfigValue("usuarioLogueado", "N");
         //log("400", "loading", "Error al llamar al servicio " + url);
-		mostrarDialogoError("Usuario no válido. Verifique los datos ingresados. Grupo debe tener 5 digitos incluyendo 0 a izquierda. Orden debe tener 3 digitos incluyendo 0 a izquierda. Documento no debe tener puntos ni espacios.");
+		//mostrarDialogoError("Usuario no válido. Verifique los datos ingresados. Grupo debe tener 5 digitos incluyendo 0 a izquierda. Orden debe tener 3 digitos incluyendo 0 a izquierda. Documento no debe tener puntos ni espacios.");
         return "Usuario no válido. Verifique los datos ingresados. Grupo debe tener 5 digitos incluyendo 0 a izquierda. Orden debe tener 3 digitos incluyendo 0 a izquierda. Documento no debe tener puntos ni espacios.";
     }
 }
