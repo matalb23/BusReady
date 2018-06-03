@@ -1,4 +1,4 @@
-﻿//const URL_SERVIDOR_REST = "https://ikeapp.conveyor.cloud/";
+//﻿const URL_SERVIDOR_REST = "https://ikeapp.conveyor.cloud/";
 //const URL_SERVIDOR_REST = "http://localhost:3672/";
 const URL_SERVIDOR_REST = "http://192.168.1.254:45455/";
 
@@ -305,10 +305,8 @@ function inicializarSeccion() {
             $.each(lista.respuesta, function(index, item) {
                 var seccion =
                 "<tr>" +
-                    "<td>" +
-                        item.nombre +
-                    "</td>" +
-                    "<td><button type='button' id='" + item.id + "' class='btn btn-primary'>Seleccionar</button>" +
+                  
+                    "<td><button type='button' id='" + item.id + "' class='btn btn-primary'>" + item.nombre + "</button>" +
 
                     "</td>" +
                 "</tr>";
