@@ -9,7 +9,7 @@
     <title>Bus Inspector</title>
 
     <script type="text/javascript" src="http://code.jquery.com/jquery-1.12.0.min.js"></script>
-    <script type="text/javascript" src="js/funciones.js"></script>
+    <script type="text/javascript" src="js/functions.js"></script>
     <script type="text/javascript" src="cordova.js"></script>
 </head>
 
@@ -20,22 +20,22 @@
         function inicializarIndex() {
 		setConfigValue("usuarioLogueado", "N");
             if (getConfigValue("dni") && getConfigValue("legajo")) {
-				//alert("Login");
+
                 var mensajeError = login();
-			
+
             } else {
-                window.location = "loading.html";
+                window.location = "login.html";
             }
 
     	    if (getConfigValue("usuarioLogueado") == "S") {
-				//alert("Home");
-    	        window.location = "home.html";
+
+              window.location = "seccion.html";
     	    } else {
-				//alert("Loading");
+
                 if (mensajeError) {
                     mostrarDialogoError(mensajeError);
                 }
-    	        window.location = "loading.html";
+    	        window.location = "login.html";
     	    }
         }
     </script>

@@ -1,6 +1,3 @@
-//const URL_SERVIDOR_REST = "http://localhost:3672/";
-
-
 var app = {
     // Application Constructor
     initialize: function() {
@@ -15,7 +12,7 @@ var app = {
         document.addEventListener('deviceready', this.onDeviceReady, false);
         document.getElementById('scan').addEventListener('click', this.scan, false);
         document.getElementById('encode').addEventListener('click', this.encode, false);
-		
+
     },
 
     // deviceready Event Handler
@@ -23,9 +20,9 @@ var app = {
     // The scope of `this` is the event. In order to call the `receivedEvent`
     // function, we must explicity call `app.receivedEvent(...);`
     onDeviceReady: function() {
-		
+
         app.receivedEvent('deviceready');
-		
+
     },
 
     // Update DOM on a Received Event
@@ -42,33 +39,14 @@ var app = {
 
     scan: function() {
         console.log('scanning');
-        
+
         var scanner = cordova.plugins.barcodeScanner;
 
         scanner.scan(
-		/*
-		function (result) { 
 
-           console.log("Scanner result: \n" +
-                "text: " + result.text + "\n" +
-                "format: " + result.format + "\n" +
-                "cancelled: " + result.cancelled + "\n");
-            console.log(result);
-			Firmar(result.text);
-			
-			 window.location = "home.html";
-
-
-        }, function (error) { 
-            console.log("Scanning failed: ", error); 
-        }*/
 		function (result) {
-          /*alert("We got a barcode\n" +
-                "Result: " + result.text + "\n" +
-                "Format: " + result.format + "\n" +
-                "Cancelled: " + result.cancelled);*/
-			Firmar(result.text);			
-			 window.location = "home.html";
+  			Firmar(result.text);
+			 window.location = "inspeccionar.html";
       },
       function (error) {
           alert("No se leyo el interno: " + error);
@@ -94,7 +72,7 @@ var app = {
         var scanner = cordova.require("cordova/plugin/BarcodeScanner");
 
         scanner.encode(scanner.Encode.TEXT_TYPE, "http://www.nhl.com", function(success) {
-			
+
             alert("encode success: " + success);
           }, function(fail) {
             alert("encoding failed: " + fail);
@@ -119,11 +97,12 @@ function ocultarCargando() {
     }
 }
 function Firmar(interno) {
-    
+var inspectorid = getConfigValue("inspectorid");
+var seccionid = getConfigValue("seccionid");
     var parametros = {
-        Inspector: 1,
+        Inspector: inspectorid,
         Interno: interno,
-        Seccion: 1
+        Seccion: seccionid
     };
     llamarServicioRestPOSTJSON(URL_SERVIDOR_REST + "api/Inspector", parametros);
 	inicializarInspecciones();
@@ -157,7 +136,7 @@ function llamarServicioRestPOSTJSON(url, parametros) {
         error: function (jqXHR, textStatus, errorThrown) {
             ocultarCargando();
             mostrarDialogoErrorSalir("En este momento no podemos validar su usuario. Por favor verifique su conexión a internet.");
-            // response = JSON.parse(jqXHR.responseText);
+
         },
         timeout: 10000
     });
@@ -217,10 +196,17 @@ function mostrarCargando() {
 }
 
 function inicializarInspecciones() {
-    mostrarCargando();
-    //inicializarPush();
-    
-    var url = URL_SERVIDOR_REST + "api/Inspector?inspector=" + 1 ;
+  var seccionid = getConfigValue("seccionid");
+
+var url = URL_SERVIDOR_REST + "api/seccion/me/"+ "?seccion=" + seccionid;
+lista = llamarServicioRestGET(url);
+setConfigValue("seccionnombre",lista.respuesta.nombre);
+var seccionnombre="<h1>"+ getConfigValue("seccionnombre") + "</h1>";
+    $(".nombre-seccion").append(seccionnombre);
+
+
+var inspectorid = getConfigValue("inspectorid");
+    var url = URL_SERVIDOR_REST + "api/Inspector?inspector=" + inspectorid ;
     listaAdjudicaciones = llamarServicioRestGET(url);
 
     if (listaAdjudicaciones.estado == "ok") {
@@ -234,7 +220,7 @@ function inicializarInspecciones() {
                     "</td>" +
                     "<td>" +
                         item.hora +
-                    "</td>" +                    
+                    "</td>" +
                 "</tr>";
 
                 $(".tabla-adj").append(adjudicacion);
@@ -247,5 +233,5 @@ function inicializarInspecciones() {
     } else {
        // log("400", "servicios-Inspecciones", "Error al llamar al servicio " + url);
     }
-    ocultarCargando();
+  //  ocultarCargando();
 }

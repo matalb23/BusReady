@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+        <!-- <link rel="stylesheet" type="text/css" href="css/index.css" /> -->
+		<!-- <link href="estilos.css" rel="stylesheet" type="text/css"> -->
+        <script type="text/javascript" src="js/functions.js"></script>
+        <script type="text/javascript" src="cordova.js"></script>
+        <title>Seccion </title>
+        <div class="nombre-seccion">
+
+        </div>
+    </head>
+    <body>
+          <!-- <div class="app">
+              <h1>Seleccionar Seccion</h1>
+          </div> -->
+		<!-- <div id="LayoutDiv6"> -->
+	<div class="container">
+		<table class="tabla-seccion">
+    	<tbody>
+        	<tr class="titulo-tabla">
+            	<td>
+                	Seccion
+                </td>
+                <td>
+
+                </td>
+
+            </tr>
+        </tbody>
+		</table>
+		</div>
+		<!-- </div> -->
+
+		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+		<!-- Include all compiled plugins (below), or include individual files as needed -->
+		<script src="js/bootstrap.min.js"></script>
+
+
+
+        <script type="text/javascript">
+       if (navigator.userAgent.match(/(iPhone|iPod|iPad|Android)/)) {
+           document.addEventListener("deviceready", inicializarSeccion, false);
+          // document.addEventListener("backbutton", goBack, false);
+       } else {
+           inicializarSeccion();
+       }
+
+       // get a reference to the table
+        var table = document.querySelector('table');
+
+        // listen for a click
+        table.addEventListener('click', function(ev){
+            // get the event targets ID
+            var seccionid = ev.target.id;
+            if(seccionid!="")
+            {
+              setConfigValue("seccionid",seccionid);
+                window.location = "inspeccionar.html";
+            }
+
+        })
+       </script>
+    </body>
+</html>
