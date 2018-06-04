@@ -45,8 +45,17 @@ var app = {
         scanner.scan(
 
 		function (result) {
-  			Firmar(result.text);
-			 window.location = "inspeccionar.html";
+			if(!isNaN(result.text)  )
+			{
+        if (result.text!="")
+				{
+          Firmar(result.text);
+        }
+			}
+      else {
+          alert("No es un qr valido");
+      }
+			window.location = "inspeccionar.html";
       },
       function (error) {
           alert("No se leyo el interno: " + error);
@@ -85,7 +94,9 @@ var app = {
 
 
 
-
+function isNumber(n) {
+  return !isNaN(parseFloat(n)) && isFinite(n);
+}
 
 function getConfigValue(keyname) {
     return window.localStorage.getItem(keyname);
