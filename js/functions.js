@@ -1,7 +1,17 @@
-//﻿const URL_SERVIDOR_REST = "https://ikeapp.conveyor.cloud/";
+﻿//﻿const URL_SERVIDOR_REST = "https://ikeapp.conveyor.cloud/";
 //const URL_SERVIDOR_REST = "http://localhost:3672/";
 const URL_SERVIDOR_REST = "http://192.168.1.254:45455/";
 
+function redireccionaSeccion(){
+  if (getConfigValue("tiposeccion") == "mapa") {
+
+      window.location = "seccion2.html";
+  }
+  else {
+      window.location = "seccion.html";
+  }
+
+}
 function getConfigValue(keyname) {
     return window.localStorage.getItem(keyname);
 }
@@ -257,7 +267,7 @@ function inicializarInspecciones() {
 
 
 
-    var url = URL_SERVIDOR_REST + "api/Inspector?inspector=" + getConfigValue("inspectorid") ;
+    var url = URL_SERVIDOR_REST + "api/Inspector?inspector=" + getConfigValue("inspectorid") + "&seccion=" + seccionid;
     lista = llamarServicioRestGET(url);
 
     if (lista.estado == "ok") {
@@ -305,7 +315,7 @@ function inicializarSeccion() {
             $.each(lista.respuesta, function(index, item) {
                 var seccion =
                 "<tr>" +
-                  
+
                     "<td><button type='button' id='" + item.id + "' class='btn btn-primary'>" + item.nombre + "</button>" +
 
                     "</td>" +
@@ -335,4 +345,34 @@ function LlamarObservacion(Interno,Patente,Observacion) {
         Descripcion:Observacion
     };
     llamarServicioRestPOSTJSON(URL_SERVIDOR_REST + "api/Observacion", parametros);
+}
+function inicializarSeccionGeo() {
+
+    var dni = getConfigValue("dni");
+    var legajo = getConfigValue("legajo");
+    var url = URL_SERVIDOR_REST + "api/Inspector/me/"+ "?dni=" + dni + "&legajo=" + legajo ;
+    lista = llamarServicioRestGET(url);
+    setConfigValue("inspectorid",lista.respuesta.id);
+    setConfigValue("inspectornombre",lista.respuesta.nombre);
+
+  /*  var seccionnombre="<h2>"+ getConfigValue("inspectornombre") + "</h2>";
+    $(".nombre-seccion").append(seccionnombre);
+*/
+    var url = URL_SERVIDOR_REST + "api/Seccion" ;
+    lista = llamarServicioRestGET(url);
+
+    if (lista.estado == "ok") {
+        if (lista.respuesta.length > 0) {
+
+          return lista.respuesta;
+
+        } else {
+
+        }
+    } else if (response.errores && response.errores.length > 0) {
+
+    } else {
+
+    }
+
 }

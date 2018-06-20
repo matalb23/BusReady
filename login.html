@@ -25,12 +25,14 @@
 
         				<div class="container">
             				<div class="col-xs-12 iconos-modal">
-                            	<p class="txt-login"> Completar los siguientes datos </p>
-            					<a href="#" class="link-modal validacion">
-                					<form action="" method="get">
-										<input name="DNI" type="number" placeholder="DNI: 11222333" class="campo-login">
-                                    	<input name="Legajo" type="number" placeholder="Legajo: 12345" class="campo-login">
-                                        <input name="INGRESAR" id="botonIngresar" type="button" class="boton-login" value="INGRESAR">
+																		<p class="txt-login"> Completar los siguientes datos </p>
+																		<a href="#" class="link-modal validacion">
+																		<form action="" method="get">
+																					<input name="DNI" type="number" placeholder="DNI: 11222333" class="campo-login">
+																					<input name="Legajo" type="number" placeholder="Legajo: 12345" class="campo-login">
+																					<input name="INGRESAR" id="botonIngresar" type="button" class="boton-login" value="INGRESAR">
+																					<input type="radio" name="seccion" value="mapa" checked="checked"> Mapa
+  																				<input type="radio" name="seccion" value="lista"> Lista
                                     </form>
                 				</a>
             				</div>
@@ -56,6 +58,7 @@
         $("#botonIngresar").on("click", function(event) {
 							borrarCache();
             mostrarCargando();
+						setConfigValue("tiposeccion", $("[name='seccion']").val());
             setConfigValue("legajo", $("[name='Legajo']").val());
             setConfigValue("dni", $("[name='DNI']").val());
 
@@ -63,7 +66,8 @@
 
             if (getConfigValue("usuarioLogueado") == "S") {
                 //window.location = "home.html";
-								window.location = "seccion.html";
+								//window.location = "seccion.html";
+								redireccionaSeccion();
             } else {
                 mostrarDialogoError(mensajeError);
                 ocultarCargando();
