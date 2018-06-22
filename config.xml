@@ -8,13 +8,13 @@
         PhoneGap Team
     </author>
     <content src="index.html" />
-	
+
     <preference name="orientation"      value="default" />
     <preference name="target-device"    value="universal" />
     <preference name="fullscreen"       value="false" />
     <preference name="webviewbounce"    value="false" />
 	<!--<preference name="android-build-tool" value="gradle" />-->
-	
+
     <preference name="DisallowOverscroll" value="true" />
     <preference name="permissions" value="none" />
     <preference name="orientation" value="portrait" />
@@ -30,7 +30,7 @@
     <preference name="android-installLocation" value="auto" />
     <preference name="SplashScreen" value="screen" />
     <preference name="SplashShowOnlyFirstTime" value="false" />
-    <preference name="SplashScreenDelay" value="20000" />
+    <preference name="SplashScreenDelay" value="2000" />
     <preference name="ShowSplashScreenSpinner" value="true" />
     <preference name="StatusBarOverlaysWebView" value="false" />
     <preference name="StatusBarStyle" value="lightcontent" />
@@ -40,8 +40,8 @@
 	<platform name="android">
         <icon src="res/icon.png" />
     </platform>
-	
-	
+
+
     <access origin="*" />
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
@@ -56,7 +56,7 @@
         <allow-intent href="itms:*" />
         <allow-intent href="itms-apps:*" />
     </platform>
-	
+
 	<plugin name="cordova-plugin-battery-status" source="npm" spec="~1.1.1" />
     <plugin name="cordova-plugin-camera" source="npm" spec="~2.1.1" />
     <plugin name="cordova-plugin-media-capture" source="npm" spec="~1.2.0" />
@@ -78,6 +78,7 @@
     <plugin name="cordova-plugin-vibration" source="npm" spec="~2.1.0" />
     <plugin name="cordova-plugin-whitelist" source="npm" spec="~1.2.1" />
 	<!--<plugin name="phonegap-plugin-barcodescanner" source="npm" spec="~6.1.0" />-->
-	<plugin name="phonegap-plugin-barcodescanner" source="npm" spec="~4.1.0" />
-	
+	  <plugin name="phonegap-plugin-barcodescanner" source="npm" spec="~4.1.0" />
+    <gap:splash src="banner.png" gap:platform="android" gap:density="ldpi" />
+
 </widget>
