@@ -86,11 +86,13 @@
                position: new google.maps.LatLng(lat, lng),
                map: map,
                title: item.nombre,
-               seccion: item.id
+               seccion: item.id,
+              icon:  'img/bus-stop32.png'
+
            });
 
            google.maps.event.addListener(marker, 'click', function() {
-              
+
               var seccionid = this.seccion;
               if(seccionid!="")
               {
