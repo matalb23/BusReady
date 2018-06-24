@@ -1,71 +1,83 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-        <meta name="format-detection" content="telephone=no" />
-        <!-- <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" /> -->
-        <meta name="viewport" content="width=device-width, initial-scale=1"/>
-        <!-- <link rel="stylesheet" type="text/css" href="css/index.css" /> -->
-         <link rel="stylesheet" href="css/bootstrap.min.css">
-        	<link href="boilerplate.css" rel="stylesheet" type="text/css">
-	<script src="respond.min.js"></script>
+          <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+          <meta name="format-detection" content="telephone=no" />
+          <!-- <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" /> -->
+          <meta name="viewport" content="width=device-width, initial-scale=1"/>
+          <!-- <link rel="stylesheet" type="text/css" href="css/index.css" /> -->
+          <link rel="stylesheet" href="css/materialize.min.css">
+          <link href="boilerplate.css" rel="stylesheet" type="text/css">
+          <script src="respond.min.js"></script>
 
-        <link href="estilos.css" rel="stylesheet" type="text/css">
-        <script type="text/javascript" src="js/functions.js"></script>
-        <script type="text/javascript" src="cordova.js"></script>
-        <title>Seccion </title>
-        <div class="nombre-seccion">
-
-        </div>
-    </head>
-    <body>
-      <body class="servicios-ike-bg-child">
-      <div class="gridContainer clearfix">
-                 <div id="LayoutDivseccion">
-                	<div class="container">
-                		<table class="tabla-seccion">
-                    	<tbody>
-                        	<tr class="titulo-tabla">
-                            	<td>
-                                	Seccion
-                              </td>
-                            </tr>
-                        </tbody>
-                		</table>
-                		</div>
-                 </div>
-</div>
-</div>
-
-		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-		<!-- Include all compiled plugins (below), or include individual files as needed -->
-		<script src="js/bootstrap.min.js"></script>
+          <link href="estilos.css" rel="stylesheet" type="text/css">
+          <script type="text/javascript" src="js/functions.js"></script>
+          <script type="text/javascript" src="cordova.js"></script>
+          <script type="text/javascript" src="js/materialize.js"></script>
+          <title>Seccion </title>
+     </head>
 
 
+     <body>
 
-        <script type="text/javascript">
-       if (navigator.userAgent.match(/(iPhone|iPod|iPad|Android)/)) {
-           document.addEventListener("deviceready", inicializarSeccion, false);
-          // document.addEventListener("backbutton", goBack, false);
-       } else {
-           inicializarSeccion();
-       }
+          <header>
 
-       // get a reference to the table
-        var table = document.querySelector('table');
+               <div class="cabecera z-depth-2" style="background-image: url('images/seccion.jpg');">
+                    </br></br>
+                    <div class="nombre-seccion white-text center" style="margin-top: 0;">
+                    </div>
+               </div>
 
-        // listen for a click
-        table.addEventListener('click', function(ev){
-            // get the event targets ID
-            var seccionid = ev.target.id;
-            if(seccionid!="")
-            {
-              setConfigValue("seccionid",seccionid);
-                window.location = "inspeccionar.html";
-            }
+          </header>
 
-        })
-       </script>
-    </body>
+          <div class="container" style="margin-top: 3em;">
+
+               <table class="tabla-seccion centered">
+                    <thead>
+                         <tr>
+                              <th>SECCION</th>
+                         </tr>
+                    </thead>
+                    <tbody>
+                         
+                    </tbody>
+               </table>
+
+          </div>
+
+          <div class="sticky"> 
+            <p>Potenciado por<img src="images/logo.png" style="width: 25%; margin-top: -0.5em;"/></p>
+          </div>
+
+          <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+          <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+          <!-- Include all compiled plugins (below), or include individual files as needed -->
+          <script src="js/bootstrap.min.js"></script>
+
+
+
+          <script type="text/javascript">
+               if (navigator.userAgent.match(/(iPhone|iPod|iPad|Android)/)) {
+                document.addEventListener("deviceready", inicializarSeccion, false);
+               // document.addEventListener("backbutton", goBack, false);
+               } else {
+                inicializarSeccion();
+               }
+
+               // get a reference to the table
+               var table = document.querySelector('table');
+
+               // listen for a click
+               table.addEventListener('click', function(ev){
+                 // get the event targets ID
+                 var seccionid = ev.target.id;
+                 if(seccionid!="")
+                 {
+                   setConfigValue("seccionid",seccionid);
+                     window.location = "inspeccionar.html";
+                 }
+
+               })
+          </script>
+     </body>
 </html>

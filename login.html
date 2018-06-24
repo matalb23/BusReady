@@ -1,54 +1,73 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
-<head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Loading...</title>
-	<link href="boilerplate.css" rel="stylesheet" type="text/css">
-	<link href="estilos.css" rel="stylesheet" type="text/css">
-	<meta name="description" content="">
-	<meta name="author" content="">
-	<script src="respond.min.js"></script>
-
- 	<!-- Bootstrap -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <script src="http://code.jquery.com/jquery-1.12.0.min.js"></script>
-   	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="js/functions.js"></script>
-  <script type="text/javascript" src="cordova.js"></script>
+			<head>
+			<meta charset="utf-8">
+			<meta name="viewport" content="width=device-width, initial-scale=1">
+			<title>Loading...</title>
+			<link href="boilerplate.css" rel="stylesheet" type="text/css">
+			<link href="estilos.css" rel="stylesheet" type="text/css">
+			<!-- <meta name="description" content="">
+			<meta name="author" content=""> -->
+			<script src="respond.min.js"></script>
+			<link href="css/materialize.css" rel="stylesheet">
+			<link href="estilos-login.css" rel="stylesheet" type="text/css">
+			<script type="text/javascript" src="js/materialize.js"></script>
+			<link href="css/bootstrap.min.css" rel="stylesheet">
+			<script src="http://code.jquery.com/jquery-1.12.0.min.js"></script>
+			<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+			<script type="text/javascript" src="js/functions.js"></script>
+			<script type="text/javascript" src="cordova.js"></script>
 
 </head>
 <body class="loading-bg">
 
 	<div class="gridContainer clearfix">
 
+		<div class="container">
 
-        				<div class="container">
-            				<div class="col-xs-12 iconos-modal">
-																		<p class="txt-login"> Completar los siguientes datos </p>
-																		<a href="#" class="link-modal validacion">
-																		<form action="" method="get">
-																					<input name="DNI" type="number" placeholder="DNI: 11222333" class="campo-login">
-																					<input name="Legajo" type="number" placeholder="Legajo: 12345" class="campo-login">
-																					<input name="INGRESAR" id="botonIngresar" type="button" class="boton-login" value="INGRESAR">
-																					<input type="radio" name="seccion" value="mapa" checked="checked"> Mapa
-  																				<input type="radio" name="seccion" value="lista"> Lista
-                                    </form>
-                				</a>
-            				</div>
-        				</div>
+			 <div class="card opacity" style="margin-top: 40%;">
+
+				<div class="card-content white-text">
+					<img class="center" src="images/logo-blanco.png"/>
+					<h5 class="center"> LOGIN </h5>
+					<!-- <a href="#" class="link-modal validacion"> -->
+					<form  action="" method="get">
+							</br>
+							<div class="input-field">
+									<label for="dni" class="white-text">dni</label>
+									<input id="dni" name="DNI" type="number" class="validate" style="color: #fff !important;">
+							</div>
+
+							<div class="input-field" style="margin-top: 2em;">
+									<label for="legajo" class="white-text">Legajo</label>
+									<input id="legajo" name="Legajo" type="number" class="validate" style="color: #fff !important; ">
+							</div>
+
+						    <!-- <label>
+						        <input type="radio"  name="seccion" value="mapa"  >
+						        <span class="white-text">Mapa</span>
+      					</label>
+
+							<label>
+						        <input type="radio" name="seccion" value="lista" checked>
+						        <span class="white-text">Lista</span>
+      				</label> -->
+							<label>
+													<input type="radio" name="seccion" value="mapa"  style="color: #fff !important; "> Mapa
+																			<input type="radio" name="seccion" value="lista" checked="checked" style="color: #fff !important; "> Lista
+							</label>
+							</br></br>
+							<input name="INGRESAR" id="botonIngresar" type="button" class="btn naranja" value="INGRESAR" style="width: 100%!important;">
+					</form>
+					</br>
+
+				 </div>
+
+			</div>
 
 		</div>
-
-
-    	<a href="#" class="link-modal"></a>
-		<div id="LayoutDiv0">
-
-		</div>
-
 
 	</div>
-
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 
@@ -57,7 +76,7 @@
     <script type="text/javascript">
         $("#botonIngresar").on("click", function(event) {
 							borrarCache();
-            mostrarCargando();
+						alert($("[name='seccion']").val());
 						setConfigValue("tiposeccion", $("[name='seccion']").val());
             setConfigValue("legajo", $("[name='Legajo']").val());
             setConfigValue("dni", $("[name='DNI']").val());
@@ -65,12 +84,11 @@
             var mensajeError = login();
 
             if (getConfigValue("usuarioLogueado") == "S") {
-                //window.location = "home.html";
-								//window.location = "seccion.html";
+
 								redireccionaSeccion();
             } else {
                 mostrarDialogoError(mensajeError);
-                ocultarCargando();
+
             }
         });
 

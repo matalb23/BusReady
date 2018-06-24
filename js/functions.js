@@ -1,5 +1,5 @@
-﻿const URL_SERVIDOR_REST = "https://ikeapp.conveyor.cloud/";
-//const URL_SERVIDOR_REST = "http://localhost:3672/";
+//﻿const URL_SERVIDOR_REST = "https://ikeapp.conveyor.cloud/";
+const URL_SERVIDOR_REST = "http://localhost:3672/";
 //const URL_SERVIDOR_REST = "http://192.168.1.254:45455/";
 
 function redireccionaSeccion(){
@@ -25,9 +25,9 @@ function borrarCache() {
 }
 
 function mostrarSplashScreen() {
-    if (navigator.splashscreen) {
+  /*  if (navigator.splashscreen) {
         navigator.splashscreen.show();
-    }
+    }*/
 }
 
 function ocultarSplashScreen() {
@@ -232,8 +232,6 @@ function salirIndex() {
 
 
 
-
-
 function inicializarLoading() {
   /*
     $("#ValidacionModal").modal("show");
@@ -257,13 +255,12 @@ function inicializarInspecciones() {
     mostrarCargando();
     var seccionid = getConfigValue("seccionid");
 
-  var url = URL_SERVIDOR_REST + "api/seccion/me/"+ "?seccion=" + seccionid;
-  lista = llamarServicioRestGET(url);
-  setConfigValue("seccionnombre",lista.respuesta.nombre);
-  var seccionnombre="<h1>"+ getConfigValue("seccionnombre") + "</h1>";
-      $(".nombre-seccion").append(seccionnombre);
-
-
+    var url = URL_SERVIDOR_REST + "api/seccion/me/"+ "?seccion=" + seccionid;
+    lista = llamarServicioRestGET(url);
+    setConfigValue("seccionnombre",lista.respuesta.nombre);
+    var seccionnombre="<h5>"+ getConfigValue("seccionnombre") + "</h5>";
+    var seccionnombre= seccionnombre.toUpperCase();
+    $(".nombre-seccion").append(seccionnombre);
 
 
 
@@ -288,11 +285,11 @@ function inicializarInspecciones() {
         } else {
             $(".tabla-inspecciones").append("<tr><td colspan='3'>No se encontraron Inspecciones</td></tr>");
         }
-    } else if (response.errores && response.errores.length > 0) {
+    }/* else if (response.errores && response.errores.length > 0) {
 
     } else {
 
-    }
+    }*/
     ocultarCargando();
 }
 function inicializarSeccion() {
@@ -303,8 +300,8 @@ function inicializarSeccion() {
     lista = llamarServicioRestGET(url);
     setConfigValue("inspectorid",lista.respuesta.id);
     setConfigValue("inspectornombre",lista.respuesta.nombre);
-
-    var seccionnombre="<h2>"+ getConfigValue("inspectornombre") + "</h2>";
+    var seccionnombre="<h5>Bienvenido "+ getConfigValue("inspectornombre") + "</h5>";
+    var seccionnombre=seccionnombre.toUpperCase();
     $(".nombre-seccion").append(seccionnombre);
 
     var url = URL_SERVIDOR_REST + "api/Seccion" ;
@@ -316,7 +313,7 @@ function inicializarSeccion() {
                 var seccion =
                 "<tr>" +
 
-                    "<td><button type='button' id='" + item.id + "' class='btn btn-primary'>" + item.nombre + "</button>" +
+                    "<td><button type='button' id='" + item.id + "' class='btn-large naranja'>" + item.nombre + "</button>" +
 
                     "</td>" +
                 "</tr>";

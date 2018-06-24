@@ -4,69 +4,76 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1"/>
 	<title>observacion</title>
+	<link href="materialize.css" rel="stylesheet" type="text/css">
 	<link href="boilerplate.css" rel="stylesheet" type="text/css">
 	<link href="estilos.css" rel="stylesheet" type="text/css">
+	<link href="css/materialize.css" rel="stylesheet" type="text/css">
 	<meta name="description" content="">
 	<meta name="author" content="">
 	<script src="respond.min.js"></script>
 
- 	<!-- Bootstrap -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <script src="http://code.jquery.com/jquery-1.12.0.min.js"></script>
-   	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="js/functions.js"></script>
-  <script type="text/javascript" src="cordova.js"></script>
-
+	<!-- Bootstrap -->
+	<link href="css/bootstrap.min.css" rel="stylesheet">
+	<script src="http://code.jquery.com/jquery-1.12.0.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="js/functions.js"></script>
+	<script type="text/javascript" src="cordova.js"></script>
 </head>
-<body class="observacion-bg">
 
-	<!-- <div class="gridContainer clearfix"> -->
+<body>
 
+     <header>
 
-        				<div class="container">
-            				<div class="col-xs-12 iconos-modal">
-                            	<p class="txt-login">Observacion</p>
-            									<!-- <a href="#" class="link-modal validacion"> -->
-                					<form action="" method="get">
-															<div class="form-group">
-																	<label for="interno">Interno</label>
-																	<input type="text" class="form-control" name="interno" placeholder="Interno">
-															</div>
+          <div class="cabecera z-depth-2" style="background-image: url('images/observar.jpg');">
+               </br></br>
+               <div class="nombre-seccion white-text center" style="margin-top: 0;">
+               	<h5>OBSERVACION</h5>
+               </div>
+          </div>
 
-															<div class="form-group">
-																	<label for="patente">patente</label>
-																	<input type="text" class="form-control" name="patente" placeholder="patente">
-															</div>
-
-															<div class="form-group">
-																	<label for="observacion">observacion</label>
-																	<textarea class="form-control" name="observacion" rows="3"></textarea>
-															</div>
+     </header>
 
 
-                              <input name="INGRESAR" id="botonIngresar" type="button" class="boton-login" value="INGRESAR">
-													</form>
-                				<!-- </a> -->
-            				</div>
-        				</div>
+   	<div class="container" style="margin-top: 3em;">
 
-		<!-- </div> -->
+       	<div class="col s12">
 
 
-    	<!-- <a href="#" class="link-modal"></a>
-		<div id="LayoutDiv0">
+           	<form action="" method="get">
+				<div class="input-field">
+						<label for="interno">Interno</label>
+						<input class="validate" type="text" class="form-control" name="interno">
+				</div>
 
-		</div> -->
+				<div class="input-field">
+						<label for="patente">patente</label>
+						<input class="validate" type="text" class="form-control" name="patente">
+				</div>
 
+				</br>
+				<div class="input-field">
+						<label for="observacion">observacion</label>
+						<textarea name="observacion" placeholder="Descripcion" rows="3"></textarea>
+				</div>
+
+				</br>
+                    <input name="INGRESAR" id="botonIngresar" type="button" class="btn naranja" value="ENVIAR" style="width: 100%!important;">
+
+			</form>
+
+		</div>
 
 	</div>
 
+	<div class="sticky">
+		<p>Potenciado por<img src="images/logo.png" style="width: 25%; margin-top: -0.5em;"/></p>
+	</div>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 
-    <script src="js/bootstrap.min.js"></script>
+     <script src="js/materialize.min.js"></script>
 
-    <script type="text/javascript">
+     <script type="text/javascript">
         $("#botonIngresar").on("click", function(event) {
 
 						$("#botonIngresar").prop("disabled", true);
@@ -75,7 +82,8 @@
 						var Observacion= $("[name='observacion']").val();
 						//alert(Observacion);
             var mensajeError=LlamarObservacion(Interno,Patente,Observacion)
-						window.location = "seccion.html";
+					//	window.location = "seccion.html";
+					redireccionaSeccion();
 
         });
 
