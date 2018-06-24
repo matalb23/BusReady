@@ -43,7 +43,7 @@
 									<input id="legajo" name="Legajo" type="number" class="validate" style="color: #fff !important; ">
 							</div>
 
-						    <!-- <label>
+						   <label>
 						        <input type="radio"  name="seccion" value="mapa"  >
 						        <span class="white-text">Mapa</span>
       					</label>
@@ -51,11 +51,11 @@
 							<label>
 						        <input type="radio" name="seccion" value="lista" checked>
 						        <span class="white-text">Lista</span>
-      				</label> -->
-							<label>
+      				</label>
+							<!-- <label>
 													<input type="radio" name="seccion" value="mapa"  style="color: #fff !important; "> Mapa
 																			<input type="radio" name="seccion" value="lista" checked="checked" style="color: #fff !important; "> Lista
-							</label>
+							</label> -->
 							</br></br>
 							<input name="INGRESAR" id="botonIngresar" type="button" class="btn naranja" value="INGRESAR" style="width: 100%!important;">
 					</form>
@@ -76,7 +76,7 @@
     <script type="text/javascript">
         $("#botonIngresar").on("click", function(event) {
 							borrarCache();
-						alert($("[name='seccion']").val());
+						//alert($("[name='seccion']").val());
 						setConfigValue("tiposeccion", $("[name='seccion']").val());
             setConfigValue("legajo", $("[name='Legajo']").val());
             setConfigValue("dni", $("[name='DNI']").val());
