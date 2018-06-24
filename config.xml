@@ -79,6 +79,6 @@
     <plugin name="cordova-plugin-whitelist" source="npm" spec="~1.2.1" />
 	<!--<plugin name="phonegap-plugin-barcodescanner" source="npm" spec="~6.1.0" />-->
 	  <plugin name="phonegap-plugin-barcodescanner" source="npm" spec="~4.1.0" />
-    <gap:splash src="banner.png" gap:platform="android" gap:density="ldpi" />
+    <gap:splash src="bg.jpg" gap:platform="android" gap:density="ldpi" />
 
 </widget>
