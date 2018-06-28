@@ -25,9 +25,9 @@ function borrarCache() {
 }
 
 function mostrarSplashScreen() {
-  /*  if (navigator.splashscreen) {
+    if (navigator.splashscreen) {
         navigator.splashscreen.show();
-    }*/
+    }
 }
 
 function ocultarSplashScreen() {
@@ -233,12 +233,10 @@ function salirIndex() {
 
 
 function inicializarLoading() {
-  /*
-    $("#ValidacionModal").modal("show");
-    setTimeout(function() {
-        ocultarSplashScreen();
-    }, 1000);
-    */
+  $("#ValidacionModal").modal("show");
+  setTimeout(function() {
+      ocultarSplashScreen();
+  }, 2000);
 }
 
 function inicializarHome() {

@@ -170,6 +170,7 @@ a:focus {
 	bottom:0;
 	margin: auto;
 }
+
 #LayoutDiv1 {
 	clear: both;
 	float: left;
@@ -393,6 +394,7 @@ a:focus {
     width: 85%;
 	color: #fff;
 	margin-bottom: 10px;
+	margin-top: 10px;
 }
 .campo-login {
     width: 80%;

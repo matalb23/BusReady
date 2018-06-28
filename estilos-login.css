@@ -43,7 +43,7 @@ body {
   main {
     flex: 1 0 auto;
  }
-
+/*
  body {
 	height: 100%!important;
 	background: url(images/login-background.jpg) !important;
@@ -52,18 +52,8 @@ body {
 	background-repeat: no-repeat !important;
 
 }
- /*body {
-	 background: url(images/login-background.jpg) no-repeat center center fixed;
-	    -webkit-background-size: cover;
-	    -moz-background-size: cover;
-	    -o-background-size: cover;
-	    background-size: cover;
 
-}*/
-
-/* url(../img/sc_bg.jpg); background-repeat: no-repeat; background-size: 100% 100%; position: fixed !important; }  */
-
-
+*/
 .center {
     display: block;
     margin-left: auto;
