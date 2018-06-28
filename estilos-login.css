@@ -44,22 +44,23 @@ body {
     flex: 1 0 auto;
  }
 
-/* body {
+ body {
 	height: 100%!important;
 	background: url(images/login-background.jpg) !important;
 	background-position: 50% 0% !important;
 	background-size: cover !important;
 	background-repeat: no-repeat !important;
 
-} */
- body {
-	height: 100%!important;
-	background: url(images/login-background.jpg) !important;
-	background-position: fixed !important;
-	background-size:cover!important;
-	background-repeat: no-repeat !important;
-
 }
+ /*body {
+	 background: url(images/login-background.jpg) no-repeat center center fixed;
+	    -webkit-background-size: cover;
+	    -moz-background-size: cover;
+	    -o-background-size: cover;
+	    background-size: cover;
+
+}*/
+
 /* url(../img/sc_bg.jpg); background-repeat: no-repeat; background-size: 100% 100%; position: fixed !important; }  */
 
 
