@@ -37,7 +37,6 @@ body {
     min-height: 100vh;
     flex-direction: column;
     margin:0; /*gets rid of white space around body*/
-    margin-top:16px;
     position:relative; /*REQUIRED Sets up positioning for your footer*/
  }
 
@@ -80,6 +79,10 @@ body {
 	left:0;            /*and to the left of the window.*/
 }
 
+.btn:hover,.btn:active{
+	color:white !important;
+}
+
 @font-face {
 
 font-family: Raleway;
@@ -89,9 +92,9 @@ src: url(fonts/Raleway-Regular.ttf) format(‘truetype’);
 }
 
 h5 {
-	font-size: 13px !important;
+	font-size: 22px !important;
 	color:#FFF !important;
-	line-height: 18px !important;
+	line-height: 10px !important;
 }
 
 .gridContainer {

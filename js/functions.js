@@ -300,7 +300,7 @@ function inicializarSeccion() {
     lista = llamarServicioRestGET(url);
     setConfigValue("inspectorid",lista.respuesta.id);
     setConfigValue("inspectornombre",lista.respuesta.nombre);
-    var seccionnombre="<h5>Bienvenido "+ getConfigValue("inspectornombre") + "</h5>";
+    var seccionnombre="<h5> "+ getConfigValue("inspectornombre") + "</h5>";
     var seccionnombre=seccionnombre.toUpperCase();
     $(".nombre-seccion").append(seccionnombre);
 
