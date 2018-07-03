@@ -1,7 +1,7 @@
-const URL_SERVIDOR_REST = "https://ikeapp.conveyor.cloud/";
+//const URL_SERVIDOR_REST = "https://ikeapp.conveyor.cloud/";
 //const URL_SERVIDOR_REST = "http://localhost:3672/";
 //const URL_SERVIDOR_REST = "http://192.168.1.254:45455/";
-
+const URL_SERVIDOR_REST = "http://10.5.139.226:45457/";
 function redireccionaSeccion(){
   if (getConfigValue("tiposeccion") == "mapa") {
 
