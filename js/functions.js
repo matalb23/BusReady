@@ -1,7 +1,22 @@
 //const URL_SERVIDOR_REST = "https://ikeapp.conveyor.cloud/";
 //const URL_SERVIDOR_REST = "http://localhost:3672/";
-//const URL_SERVIDOR_REST = "http://192.168.1.254:45455/";
-const URL_SERVIDOR_REST = "http://10.5.139.226:45457/";
+const URL_SERVIDOR_REST = "http://192.168.1.254:45457/";
+function url_servidor(){
+    //return getConfigValue("url_server");
+  //alert("Entro a funcion url_servidor");
+  //alert(getConfigValue("url_server"));
+        //return getConfigValue("url_server");
+      if (getConfigValue("url_server")==null ) {
+          setConfigValue("url_server",URL_SERVIDOR_REST);
+          return getConfigValue("url_server");
+      } else {
+
+          return getConfigValue("url_server");
+        }
+
+}
+
+
 function redireccionaSeccion(){
   if (getConfigValue("tiposeccion") == "mapa") {
 
@@ -21,7 +36,7 @@ function setConfigValue(keyname, value) {
 }
 
 function borrarCache() {
-	window.localStorage.clear();
+	//window.localStorage.clear();
 }
 
 function mostrarSplashScreen() {
@@ -105,11 +120,12 @@ function llamarServicioRestPOSTJSON(url, parametros) {
             response = json;
         },
         error: function (jqXHR, textStatus, errorThrown) {
-            ocultarCargando();
-            mostrarDialogoErrorSalir("En este momento no podemos validar su usuario. Por favor verifique su conexión a internet.");
+            //ocultarCargando();
+            mostrarDialogoErrorSalir("En este momento no podemos validar su usuario. Por favor verifique su conexión a internet.J");
+            //window.location = "urlServidor.html";
         },
         timeout: 10000
-    });
+    });//10000
     return response;
 }
 
@@ -125,10 +141,11 @@ function llamarServicioRestPOST(url, parametros) {
             response = json;
         },
         error: function (jqXHR, textStatus, errorThrown) {
-            ocultarCargando();
-            mostrarDialogoErrorSalir("En este momento no podemos validar su usuario. Por favor verifique su conexión a internet.");
+            //ocultarCargando();
+            mostrarDialogoErrorSalir("llamarServicioRestPOST:En este momento no podemos validar su usuario. Por favor verifique su conexión a internet.");
+            window.location = "urlServidor.html";
         },
-        timeout: 10000
+        timeout: 3000
     });
     return response;
 }
@@ -184,7 +201,7 @@ function login() {
         client_id: "_BusInspector1234$_"
     };
 
-    var url = URL_SERVIDOR_REST + "token";
+    var url = url_servidor() + "token";
 
     var response = llamarServicioRestPOST(url, parametros);
 
@@ -211,7 +228,7 @@ function Firmar(Interno) {
         Interno: Interno,
         Seccion: seccionid
     };
-    llamarServicioRestPOSTJSON(URL_SERVIDOR_REST + "api/Inspector", parametros);
+    llamarServicioRestPOSTJSON(url_servidor() + "api/Inspector", parametros);
 }
 
 function salir() {
@@ -233,10 +250,18 @@ function salirIndex() {
 
 
 function inicializarLoading() {
+
+
   $("#ValidacionModal").modal("show");
   setTimeout(function() {
       ocultarSplashScreen();
   }, 2000);
+}
+
+function inicializarUrlServidor() {
+  //if
+ $("#url").val(url_servidor());
+ //$("#url").val(URL_SERVIDOR_REST);
 }
 
 function inicializarHome() {
@@ -253,7 +278,7 @@ function inicializarInspecciones() {
     mostrarCargando();
     var seccionid = getConfigValue("seccionid");
 
-    var url = URL_SERVIDOR_REST + "api/seccion/me/"+ "?seccion=" + seccionid;
+    var url = url_servidor() + "api/seccion/me/"+ "?seccion=" + seccionid;
     lista = llamarServicioRestGET(url);
     setConfigValue("seccionnombre",lista.respuesta.nombre);
     var seccionnombre="<h5>"+ getConfigValue("seccionnombre") + "</h5>";
@@ -262,7 +287,7 @@ function inicializarInspecciones() {
 
 
 
-    var url = URL_SERVIDOR_REST + "api/Inspector?inspector=" + getConfigValue("inspectorid") + "&seccion=" + seccionid;
+    var url = url_servidor() + "api/Inspector?inspector=" + getConfigValue("inspectorid") + "&seccion=" + seccionid;
     lista = llamarServicioRestGET(url);
 
     if (lista.estado == "ok") {
@@ -294,7 +319,7 @@ function inicializarSeccion() {
     // mostrarCargando();
     var dni = getConfigValue("dni");
     var legajo = getConfigValue("legajo");
-    var url = URL_SERVIDOR_REST + "api/Inspector/me/"+ "?dni=" + dni + "&legajo=" + legajo ;
+    var url = url_servidor() + "api/Inspector/me/"+ "?dni=" + dni + "&legajo=" + legajo ;
     lista = llamarServicioRestGET(url);
     setConfigValue("inspectorid",lista.respuesta.id);
     setConfigValue("inspectornombre",lista.respuesta.nombre);
@@ -302,7 +327,7 @@ function inicializarSeccion() {
     var seccionnombre=seccionnombre.toUpperCase();
     $(".nombre-seccion").append(seccionnombre);
 
-    var url = URL_SERVIDOR_REST + "api/Seccion" ;
+    var url = url_servidor() + "api/Seccion" ;
     lista = llamarServicioRestGET(url);
 
     if (lista.estado == "ok") {
@@ -339,13 +364,13 @@ function LlamarObservacion(Interno,Patente,Observacion) {
         patente:Patente,
         Descripcion:Observacion
     };
-    llamarServicioRestPOSTJSON(URL_SERVIDOR_REST + "api/Observacion", parametros);
+    llamarServicioRestPOSTJSON(url_servidor() + "api/Observacion", parametros);
 }
 function inicializarSeccionGeo() {
 
     var dni = getConfigValue("dni");
     var legajo = getConfigValue("legajo");
-    var url = URL_SERVIDOR_REST + "api/Inspector/me/"+ "?dni=" + dni + "&legajo=" + legajo ;
+    var url = url_servidor() + "api/Inspector/me/"+ "?dni=" + dni + "&legajo=" + legajo ;
     lista = llamarServicioRestGET(url);
     setConfigValue("inspectorid",lista.respuesta.id);
     setConfigValue("inspectornombre",lista.respuesta.nombre);
@@ -353,7 +378,7 @@ function inicializarSeccionGeo() {
   /*  var seccionnombre="<h2>"+ getConfigValue("inspectornombre") + "</h2>";
     $(".nombre-seccion").append(seccionnombre);
 */
-    var url = URL_SERVIDOR_REST + "api/Seccion" ;
+    var url = url_servidor() + "api/Seccion" ;
     lista = llamarServicioRestGET(url);
 
     if (lista.estado == "ok") {

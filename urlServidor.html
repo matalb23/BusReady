@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+			<head>
+			<meta charset="utf-8">
+			<meta name="viewport" content="width=device-width, initial-scale=1">
+			<title>Loading...</title>
+			<link href="boilerplate.css" rel="stylesheet" type="text/css">
+
+			<script src="respond.min.js"></script>
+			<link href="css/materialize.css" rel="stylesheet">
+			<link href="estilos-login.css" rel="stylesheet" type="text/css">
+			<script type="text/javascript" src="js/materialize.js"></script>
+			<link href="css/bootstrap.min.css" rel="stylesheet">
+			<script src="http://code.jquery.com/jquery-1.12.0.min.js"></script>
+			<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+			<script type="text/javascript" src="js/functions.js"></script>
+			<script type="text/javascript" src="cordova.js"></script>
+
+</head>
+<body class="loading-bg">
+
+	<div class="gridContainer clearfix">
+
+		<div class="container">
+
+			 <div class="card opacity" style="margin-top: 40%;">
+
+				<div class="card-content white-text">
+					<img class="center" src="images/logo-blanco.png"/>
+					<h5 class="center"> URL </h5>
+
+					<form  action="" method="get">
+							</br>
+							<div class="input-field">
+									<label for="url" class="white-text">URL Server</label>
+									<input id="url" name="url" type="text" class="validate" style="color: #fff !important;">
+							</div>
+
+							</br>
+							<input name="INGRESAR" id="botonIngresar" type="button" class="btn naranja" value="Guardar" style="width: 100%!important;">
+					</form>
+					</br>
+
+				 </div>
+
+			</div>
+
+		</div>
+
+	</div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+    <script src="js/bootstrap.min.js"></script>
+
+    <script type="text/javascript">
+        $("#botonIngresar").on("click", function(event) {
+							borrarCache();
+
+						setConfigValue("url_server", $('#url').val());
+						alert(url_servidor());
+            window.location = "index.html";
+
+        });
+
+        if (navigator.userAgent.match(/(iPhone|iPod|iPad|Android)/)) {
+            document.addEventListener("deviceready", inicializarUrlServidor, false);
+            document.addEventListener("backbutton", salir, false);
+        } else {
+            inicializarUrlServidor();
+						// $("#url").val(url_servidor());
+        }
+    </script>
+
+</body>
+</html>
