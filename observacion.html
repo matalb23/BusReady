@@ -4,7 +4,8 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1"/>
 	<title>observacion</title>
-	<link href="materialize.css" rel="stylesheet" type="text/css">
+	<!-- <link href="materialize.css" rel="stylesheet" type="text/css"> -->
+	<!-- <link href="css/materialize.css" rel="stylesheet"> -->
 	<link href="boilerplate.css" rel="stylesheet" type="text/css">
 	<link href="estilos.css" rel="stylesheet" type="text/css">
 	<link href="css/materialize.css" rel="stylesheet" type="text/css">
@@ -42,18 +43,18 @@
            	<form action="" method="get">
 				<div class="input-field">
 						<label for="interno">Interno</label>
-						<input class="validate" type="text" class="form-control" name="interno">
+						<input class="validate" type="number" class="form-control" name="interno">
 				</div>
 
-				<div class="input-field">
+				<!-- <div class="input-field">
 						<label for="patente">patente</label>
 						<input class="validate" type="text" class="form-control" name="patente">
-				</div>
+				</div> -->
 
 				</br>
 				<div class="input-field">
 						<label for="observacion">observacion</label>
-						<textarea name="observacion" placeholder="Descripcion" rows="3"></textarea>
+						<textarea name="observacion" placeholder="Descripcion" rows="3" style="height: 8rem;"></textarea>
 				</div>
 
 				</br>
@@ -76,14 +77,25 @@
      <script type="text/javascript">
         $("#botonIngresar").on("click", function(event) {
 
+
 						$("#botonIngresar").prop("disabled", true);
 						var Interno= $("[name='interno']").val();
-						var Patente= $("[name='patente']").val();
+						// var Patente= $("[name='patente']").val();
+						var Patente= "";
 						var Observacion= $("[name='observacion']").val();
-						//alert(Observacion);
-            var mensajeError=LlamarObservacion(Interno,Patente,Observacion)
-					//	window.location = "seccion.html";
-					redireccionaSeccion();
+
+
+						if (ExisteInterno(Interno)==true)
+						{
+		            var mensajeError=LlamarObservacion(Interno,Patente,Observacion);
+								redireccionaSeccion();
+								alert("Se ingreso la observación con éxito.");
+						}
+						else {
+								$("#botonIngresar").prop("disabled", false);
+							alert("El interno " + Interno + " no existe.");
+								//mostrarDialogoError("El interno " + Interno + " no existe.");
+						}
 
         });
 

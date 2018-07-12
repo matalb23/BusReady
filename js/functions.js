@@ -1,6 +1,6 @@
-//const URL_SERVIDOR_REST = "https://ikeapp.conveyor.cloud/";
+const URL_SERVIDOR_REST = "https://ikeapp.conveyor.cloud/";
 //const URL_SERVIDOR_REST = "http://localhost:3672/";
-const URL_SERVIDOR_REST = "http://192.168.1.254:45457/";
+//const URL_SERVIDOR_REST = "http://192.168.1.254:45457/";
 function url_servidor(){
     //return getConfigValue("url_server");
   //alert("Entro a funcion url_servidor");
@@ -142,7 +142,7 @@ function llamarServicioRestPOST(url, parametros) {
         },
         error: function (jqXHR, textStatus, errorThrown) {
             //ocultarCargando();
-            mostrarDialogoErrorSalir("llamarServicioRestPOST:En este momento no podemos validar su usuario. Por favor verifique su conexión a internet.");
+            mostrarDialogoErrorSalir("En este momento no podemos validar su usuario. Por favor verifique su conexión a internet.compruebe url api");
             window.location = "urlServidor.html";
         },
         timeout: 3000
@@ -396,3 +396,13 @@ function inicializarSeccionGeo() {
     }
 
 }
+function ExisteInterno(internoid) {
+    var url = url_servidor() + "api/Interno/existe/" + "?interno=" + internoid;
+  //  alert(url);
+    var lista = llamarServicioRestGET(url);
+    if (lista.respuesta=="false")
+    {return false;}
+    else {
+      return false;
+    }
+  }

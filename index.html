@@ -18,7 +18,7 @@
         document.addEventListener("deviceready", inicializarIndex, false);
 
         function inicializarIndex() {
-		setConfigValue("usuarioLogueado", "N");
+		        setConfigValue("usuarioLogueado", "N");
             if (getConfigValue("dni") && getConfigValue("legajo")) {
 
                 var mensajeError = login();
