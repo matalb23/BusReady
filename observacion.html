@@ -85,7 +85,7 @@
 						var Observacion= $("[name='observacion']").val();
 
 
-						if (ExisteInterno(Interno)==true)
+						if (ExisteInterno(Interno)==1)
 						{
 		            var mensajeError=LlamarObservacion(Interno,Patente,Observacion);
 								redireccionaSeccion();
@@ -93,7 +93,8 @@
 						}
 						else {
 								$("#botonIngresar").prop("disabled", false);
-							alert("El interno " + Interno + " no existe.");
+							//alert("El interno " + Interno + " no existe.");
+							mostrarDialogoError("El interno " + Interno + " no existe.");
 								//mostrarDialogoError("El interno " + Interno + " no existe.");
 						}
 

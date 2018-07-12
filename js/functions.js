@@ -400,9 +400,7 @@ function ExisteInterno(internoid) {
     var url = url_servidor() + "api/Interno/existe/" + "?interno=" + internoid;
   //  alert(url);
     var lista = llamarServicioRestGET(url);
-    if (lista.respuesta=="false")
-    {return false;}
-    else {
-      return false;
-    }
+    if (lista.respuesta=="1")
+    {return 1;}
+    else { return 0;    }
   }
