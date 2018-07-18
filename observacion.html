@@ -89,7 +89,8 @@
 						{
 		            var mensajeError=LlamarObservacion(Interno,Patente,Observacion);
 								redireccionaSeccion();
-								alert("Se ingreso la observación con éxito.");
+								//alert("Se ingreso la observación con éxito.");
+								mostrarDialogoError("Se ingreso la observación con éxito.");
 						}
 						else {
 								$("#botonIngresar").prop("disabled", false);
